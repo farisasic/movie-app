@@ -1,0 +1,4 @@
+#222629 - Black background
+#474b4f - dark gray (optional use)
+#6b6e70 - light gray (optional use)
+#86C232 - light green
