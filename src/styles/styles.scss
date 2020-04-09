@@ -1,0 +1,19 @@
+// Imports
+
+// Google Fonts - Import
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+// Resets
+@import './base/resets';
+
+// Color and Type Variables
+@import './base/variables';
+
+// Components
+@import './components/about';
+@import './components/favourites';
+@import './components/footer';
+@import './components/header';
+@import './components/home';
+@import './components/individualmovie';
+@import './components/pagenotfound';
