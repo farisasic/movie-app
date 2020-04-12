@@ -17,6 +17,9 @@ import PageNotFound from '../components/PageNotFound';
 import About from '../components/About';
 import Favourites from '../components/Favourites';
 
+// Styles Import
+import Styles from '../styles/styles.scss';
+
 const AppRouter = () => (
     <Router>
     <div className="wrapper">
