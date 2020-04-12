@@ -18,7 +18,7 @@ import About from '../components/About';
 import Favourites from '../components/Favourites';
 
 // Styles Import
-import Styles from '../styles/styles.scss';
+import '../styles/styles.scss';
 
 const AppRouter = () => (
     <Router>
