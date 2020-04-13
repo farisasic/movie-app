@@ -1,5 +1,12 @@
 header{
     background-color: $black;
+    font-family: $headingFont;
+}
+
+.navbar{
+    list-style: none;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 ul{
@@ -7,9 +14,20 @@ ul{
     list-style: none;
     text-decoration: none;
     justify-content: space-evenly;
+    color: white;
 }
 
-.navbar{
+li{
     list-style: none;
     text-decoration: none;
 }
+
+li a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    background-color: $lightGreen;
+    border: $lightGreen 1px solid;
+    padding: 5px;
+}
+
