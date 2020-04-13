@@ -5,6 +5,7 @@ class Header extends React.Component {
     render(){
         return(
             <header>
+                <h1>Cinedex</h1>
                 <nav>
                     <ul>
                         <li>
