@@ -5,20 +5,22 @@ class Header extends React.Component {
     render(){
         return(
             <header>
-                <h1>Cinedex</h1>
-                <nav>
-                    <ul>
-                        <li>
-                            <NavLink to="/" exact>Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/about">About</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/favourites">Favourites</NavLink>
-                        </li>
-                    </ul>
-                </nav>
+                <div className="logo">
+                    <h1>Cinedex</h1>
+                </div>
+                        <nav className="navbar">
+                            <ul>
+                                <li>
+                                    <NavLink to="/" exact>Home</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/about">About</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/favourites">Favourites</NavLink>
+                                </li>
+                            </ul>
+                        </nav>
             </header>
         )
     }
