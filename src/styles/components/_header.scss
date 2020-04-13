@@ -4,7 +4,7 @@ header{
     font-family: $headingFont;
     font-style: italic;
     font-weight: 400;
-    
+    margin: 0;
 }
 
 .navbar{
@@ -16,14 +16,17 @@ header{
 }
 
 ul{
+    
     display: flex;
     list-style: none;
     text-decoration: none;
     justify-content: space-evenly;
     color: white;
-    margin: 0;
+    margin: 15px 15px 0 15px;
+    
     padding-top: 20px;
     padding-left: 0;
+    max-width: 1000px;
 }
 
 li{
@@ -42,12 +45,12 @@ li a{
 
 .logo {
     padding-bottom: 20px;
-    
+    width: 1000px;
 }
 
 .logo h1{
     display: inline-block;
-    margin: 0;
+    margin: 15px;
     padding: 20px;
     color: white;
     position: relative;
@@ -70,13 +73,8 @@ li a{
 
     ul{
         display: flex;
-        list-style: none;
-        text-decoration: none;
         justify-content: flex-end;
-        color: white;
-        margin: 0;
-        padding-top: 20px;
-        padding-right: 40px;
+        //margin: 15px;
     }
 
     li{
@@ -90,13 +88,13 @@ li a{
 
     .logo h1{
         display: inline-block;
-        margin: 0;
+        //margin: 0;
         padding: 20px;
         color: white;
         position: relative;
         padding-bottom: 5px;
         font-size: 2.7rem;
-        padding-left: 40px;
+        //padding-left: 40px;
     }
 
 
