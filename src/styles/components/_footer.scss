@@ -1,0 +1,23 @@
+footer {
+    background-color: $black;
+    height: 110px;
+}
+
+footer p {
+    color: white;
+    font-family: $bodyFont;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.footer-p {
+    padding-top: 10px;
+}
+
+.footer-p3 {
+    padding-bottom: 10px;
+    background-color: $black;
+}
