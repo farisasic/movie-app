@@ -8,19 +8,19 @@ class Header extends React.Component {
                 <div className="logo">
                     <h1>Cinedex</h1>
                 </div>
-                        <nav className="navbar">
-                            <ul>
-                                <li>
-                                    <NavLink to="/" exact>Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/about">About</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/favourites">Favourites</NavLink>
-                                </li>
-                            </ul>
-                        </nav>
+                    <nav className="navbar">
+                        <ul>
+                            <li>
+                                <NavLink to="/" exact>Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/about">About</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/favourites">Favourites</NavLink>
+                            </li>
+                        </ul>
+                    </nav>
             </header>
         )
     }

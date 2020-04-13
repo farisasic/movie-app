@@ -1,3 +1,15 @@
-.navbar{
+header{
+    background-color: $black;
+}
+
+ul{
     display: flex;
+    list-style: none;
+    text-decoration: none;
+    justify-content: space-evenly;
+}
+
+.navbar{
+    list-style: none;
+    text-decoration: none;
 }
