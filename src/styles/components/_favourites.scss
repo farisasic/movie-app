@@ -1,0 +1,15 @@
+.favourites-page {
+    background-color: $black;
+    display: flex;
+    justify-content: center;
+}
+
+.favourites-p {
+    color: white;
+    font-family: $bodyFont;
+    font-size: 0.9em;
+    margin: 0;
+    height: 100vh;
+    padding: 70px 30px 0px 30px;
+    max-width: 550px;
+}
