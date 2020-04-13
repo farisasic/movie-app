@@ -20,7 +20,7 @@ class Header extends React.Component {
                                 <NavLink to="/favourites">Favourites</NavLink>
                             </li>
                         </ul>
-                    </nav>
+                    </nav>                 
             </header>
         )
     }
