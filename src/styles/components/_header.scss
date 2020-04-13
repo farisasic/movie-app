@@ -17,6 +17,8 @@ ul{
     text-decoration: none;
     justify-content: space-evenly;
     color: white;
+    margin: 0;
+    padding-top: 20px;
 }
 
 li{
@@ -33,3 +35,8 @@ li a{
     padding: 5px;
 }
 
+.logo h1{
+    margin: 0;
+    padding: 20px;
+    color: white;
+}
