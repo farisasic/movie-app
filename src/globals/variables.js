@@ -4,6 +4,7 @@
 
 // URL: https://www.themoviedb.org/settings/api
 // API key: b6950b3810471cf1d9e1e23f46669181
+// Example API request: https://api.themoviedb.org/3/movie/550?api_key=b6950b3810471cf1d9e1e23f46669181
 
 // API Variables
 export const API_KEY = 'b6950b3810471cf1d9e1e23f46669181';
