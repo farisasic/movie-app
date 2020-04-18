@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { API_KEY, BASE_URL } from '../globals/variables';
 
-class IndividualMovie extends React.Component {
-    render(){
-        return(
+const IndividualMovie = () => {
+
+    // Page variables
+    let movie_id = '330457';
+
+    const [movieData, setMovieData] = useState(null);
+
+    useEffect(() => {
+
+        const fetchMovieInfo = async () => {
+            const res = await fetch (`${BASE_URL}${movie_id}?api_key=${API_KEY}&language=en-US`);
+            const movieData = await res.json();
+            setMovieData(movieData);
+            console.log(movieData);
+        }
+        fetchMovieInfo();
+
+        }, [movie_id]);
+
+
+        return (
                 <main className="main-movie">
                     <section className="section-movie">
                         <div className="im-page">
@@ -12,7 +31,7 @@ class IndividualMovie extends React.Component {
                                 </div>
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
-                                        <h2 className="im-title">Bad Boys for Life</h2>
+                                        <h2 className="im-title">MovieTitle</h2>
                                         <div className="fav-container">
                                             <div className="heart-shape"></div>
                                             <p>Add to favourites</p>
@@ -37,6 +56,5 @@ class IndividualMovie extends React.Component {
                 </main>
         )
     }
-}
 
 export default IndividualMovie;
