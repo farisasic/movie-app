@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {API_KEY, BASE_URL} from '../globals/variables';
+import {popularMovie} from '../utilities/PopularMovie';
 
-const homePage = () => {
-    const [movieData, setMovieData] = useState(null);
+const Home = () => {
+
+    let movieList = 'title';
+    
+    const [popularMovies, setPopularMovie] = useState(null);
 
     useEffect(() => {
 
-        const fetchMovieInfo = async () => {
-            const res = await fetch (`${BASE_URL}${movie_id}?api_key=${API_KEY}&language=en-US`);
-            const movieData = await res.json();
-            setMovieData(movieData);
-            console.log(movieData);
+        const fetchMovieList = async () => {
+            const res = await fetch (`${BASE_URL}${popularMovie}?api_key=${API_KEY}&language=en-US`);
+            const popularMovies = await res.json();
+            setPopularMovie(popularMovies);
+            console.log(popularMovies);
         }
-        fetchMovieInfo();
+        fetchMovieList();
 
-        }, [movie_id]);
+        }, [movieList]);
 
-        
+
         return(
             <main className="main-home">
                 <section className="section-home">
-                    <h1 className="home-h1">This is a Home component.</h1>
+                    <div className="movie-grid">
+                        <div className="individual-movie">
+
+                        </div>
+                    </div>
                 </section>  
             </main>
         )

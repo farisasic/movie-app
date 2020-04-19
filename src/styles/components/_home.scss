@@ -3,7 +3,10 @@ main{
     
 }
 
-.home-h1{
-    margin: 0;
-    padding-top: 20px;
+.movie-grid{
+    display: flex;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+

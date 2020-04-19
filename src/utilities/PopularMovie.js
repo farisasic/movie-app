@@ -1,6 +1,6 @@
 
 
-const popularMovie = {
+let popularMovie = [{
     "page": 1,
     "total_results": 10000,
     "total_pages": 500,
@@ -409,4 +409,6 @@ const popularMovie = {
         "release_date": "2020-02-29"
       }
     ]
-  }
+  }]
+
+  this.movies = this.state.show.map('results'('popularity',key ) => <li key={'popularity'.id}>{'popularity'.name}</li>);
