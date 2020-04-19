@@ -12,6 +12,6 @@ export const API_DATA_MODE = '&mode=json';
 export const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 
 // General App Settings
-export const APP_FOLDER_DATE = '/movie-app';
-
+export const APP_FOLDER_NAME = '/movie-app';
+export const MAX_NUMBER_OF_MOVIES = 12;
 
