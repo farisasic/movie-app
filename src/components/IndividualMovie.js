@@ -1,51 +1,81 @@
 import React, { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../globals/variables';
+import makeDate from '../utilities/dateMaker';
 
-const IndividualMovie = () => {
+const IndividualMovie = (props) => {
 
     // Page variables
     let movie_id = '330457';
+    let initialTitle = '';
+    let initialMovieDescription = '';
+    let initialRating = '';
+    let initialReleaseDate = '';
+    let initialPoster = '';
 
-    const [movieData, setMovieData] = useState(null);
+    // App states
+    const [movieTitle, setMovieTitle] = useState(initialTitle);
+    const [movieDescription, setMovieDescription] = useState(initialMovieDescription);
+    const [movieRating, setMovieRating] = useState(initialRating);
+    const [releaseDate, setReleaseDate] = useState(initialReleaseDate);
+    const [poster, setPoster] = useState(initialPoster);
 
+    // Movie info API call
     useEffect(() => {
 
         const fetchMovieInfo = async () => {
             const res = await fetch (`${BASE_URL}${movie_id}?api_key=${API_KEY}&language=en-US`);
             const movieData = await res.json();
-            setMovieData(movieData);
-            console.log(movieData);
+            setMovieTitle(movieData.title);
+            setMovieDescription(movieData.overview);
+            setMovieRating(movieData.vote_average * 10);
+            setReleaseDate(movieData.release_date);
+            setPoster(movieData.poster_path);
+            // console.log(movieData);
         }
         fetchMovieInfo();
 
         }, [movie_id]);
 
 
+        // Config API call
+        useEffect(() => {
+
+            const fetchMovieImages = async () => {
+                const res = await fetch (`https://api.themoviedb.org/3/configuration?api_key=${API_KEY}&language=en-US`);
+                const movieImages = await res.json();
+                console.log(movieImages);
+                const imageBaseURL = movieImages.images.secure_base_url;
+            }
+            fetchMovieImages();
+    
+            }, []);
+
+        
         return (
                 <main className="main-movie">
                     <section className="section-movie">
                         <div className="im-page">
                             <div className="movie-info-container">
                                 <div className="poster-placeholder-container">
-                                    <div className="poster-placeholder"></div>
+                                <img src="https://image.tmdb.org/t/p/w500/h6Wi81XNXCjTAcdstiCLRykN3Pa.jpg" alt={movieTitle}></img>
                                 </div>
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
-                                        <h2 className="im-title">MovieTitle</h2>
+                                        <h2 className="im-title">{movieTitle}</h2>
                                         <div className="fav-container">
                                             <div className="heart-shape"></div>
                                             <p>Add to favourites</p>
                                         </div>
                                         <h3>Overview</h3>
-                                        <p>Marcus and Mike are forced to confront new threats, career changes, and midlife crises as they join the newly created elite team AMMO of the Miami police department to take down the ruthless Armando Armas, the vicious leader of a Miami drug cartel.</p>
+                                        <p>{movieDescription}</p>
                                         <div className="movie-text-flex">
                                             <div className="release">
                                                 <h3>Release date</h3>
-                                                <p>Jan 17, 2020</p>
+                                                <p>{makeDate(releaseDate)}</p>
                                             </div>
                                             <div className="rating">
                                                 <h3>Rating</h3>
-                                                <p>73%</p>
+                                                <p>{movieRating}%</p>
                                             </div>
                                         </div>
                                     </div>

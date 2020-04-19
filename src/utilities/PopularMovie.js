@@ -411,4 +411,4 @@ let popularMovie = [{
     ]
   }]
 
-  this.movies = this.state.show.map('results'('popularity',key ) => <li key={'popularity'.id}>{'popularity'.name}</li>);
+  // this.movies = this.state.show.map('results'('popularity',key ) => <li key={'popularity'.id}>{'popularity'.name}</li>);
