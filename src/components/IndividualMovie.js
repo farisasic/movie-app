@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../globals/variables';
-import makeDate from '../utilities/dateMaker';
 
 const IndividualMovie = (props) => {
 
@@ -11,6 +10,8 @@ const IndividualMovie = (props) => {
     let initialRating = '';
     let initialReleaseDate = '';
     let initialPoster = '';
+    let initialImageURL = '';
+    let initialImageSize = '';
 
     // App states
     const [movieTitle, setMovieTitle] = useState(initialTitle);
@@ -18,6 +19,8 @@ const IndividualMovie = (props) => {
     const [movieRating, setMovieRating] = useState(initialRating);
     const [releaseDate, setReleaseDate] = useState(initialReleaseDate);
     const [poster, setPoster] = useState(initialPoster);
+    const [imageURL, setImageURL] = useState(initialImageURL);
+    const [imageSize, setImageSize] = useState(initialImageSize);
 
     // Movie info API call
     useEffect(() => {
@@ -30,7 +33,6 @@ const IndividualMovie = (props) => {
             setMovieRating(movieData.vote_average * 10);
             setReleaseDate(movieData.release_date);
             setPoster(movieData.poster_path);
-            // console.log(movieData);
         }
         fetchMovieInfo();
 
@@ -43,21 +45,28 @@ const IndividualMovie = (props) => {
             const fetchMovieImages = async () => {
                 const res = await fetch (`https://api.themoviedb.org/3/configuration?api_key=${API_KEY}&language=en-US`);
                 const movieImages = await res.json();
-                console.log(movieImages);
-                const imageBaseURL = movieImages.images.secure_base_url;
+                setImageURL(movieImages.images.secure_base_url);
+                setImageSize(movieImages.images.poster_sizes[4]);
             }
             fetchMovieImages();
     
             }, []);
 
+            // // Date Maker
+            // // - Outputs a date in a human readable format - example: Mar 27, 2020 
+            const makeDate = () => {
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const date = new Date(releaseDate);
+                return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+            }
         
         return (
                 <main className="main-movie">
                     <section className="section-movie">
                         <div className="im-page">
                             <div className="movie-info-container">
-                                <div className="poster-placeholder-container">
-                                <img src="https://image.tmdb.org/t/p/w500/h6Wi81XNXCjTAcdstiCLRykN3Pa.jpg" alt={movieTitle}></img>
+                                <div className="poster-container">
+                                <img src={`${imageURL}${imageSize}${poster}`} alt={movieTitle}></img>
                                 </div>
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
