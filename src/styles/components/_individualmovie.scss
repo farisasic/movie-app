@@ -89,10 +89,17 @@
   }
 
   .fav-container {
+    background-color: transparent;
       display: flex;
       justify-content: center;
       border: 1px solid white;
-      padding: 20px 30px;
+      padding: 25px 30px;
+      color: none;
+      width: 100%;
+  }
+
+  .fav-container p {
+    line-height: 13px;
   }
 
   @media (min-width: 700px) {

@@ -52,14 +52,19 @@ const IndividualMovie = (props) => {
     
             }, []);
 
-            // // Date Maker
-            // // - Outputs a date in a human readable format - example: Mar 27, 2020 
-            const makeDate = () => {
-                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                const date = new Date(releaseDate);
-                return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-            }
-        
+        // // Date maker - reformats the date
+        const makeDate = () => {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const date = new Date(releaseDate);
+            return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+        }
+
+        function setFavourite(){
+            const favButton = document.getElementsByClassName('fav-container')[0];
+            console.log(favButton);
+        }
+        setFavourite();
+
         return (
                 <main className="main-movie">
                     <section className="section-movie">
@@ -71,7 +76,7 @@ const IndividualMovie = (props) => {
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
                                         <h2 className="im-title">{movieTitle}</h2>
-                                        <div className="fav-container">
+                                        <div onclick={setFavourite} className="fav-container">
                                             <div className="heart-shape"></div>
                                             <p>Add to favourites</p>
                                         </div>
