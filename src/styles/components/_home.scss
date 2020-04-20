@@ -4,9 +4,35 @@ main{
 }
 
 .movie-grid{
-    display: flex;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 0;
+    list-style: none;
 }
+
+.individual-movie {
+    display: flex;
+}
+
+@media only screen and (min-width: 700px) {
+
+    .movie-grid{
+        grid-template-columns: repeat(6,1fr)
+    }
+}
+
+@media only screen and (min-width: 900px) {
+
+    .movie-grid{
+        grid-template-columns: repeat(12,1fr)
+    }
+}
+
+
+
 
