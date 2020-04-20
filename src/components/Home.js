@@ -32,7 +32,7 @@ const Home = () => {
                 setMovieRating(movieData.vote_average * 10);
                 //setReleaseDate(movieData.release_date);
                 setPoster(movieData.poster_path);
-                 //console.log(movieData);
+                 console.log(movieData);
             }
             fetchMovieInfo();
     

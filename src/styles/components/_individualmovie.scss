@@ -96,11 +96,23 @@
       padding: 25px 30px;
       color: none;
       width: 100%;
+      cursor: pointer;
+  }
+
+  .fav-container:active{
+    background-color: white;
+      p{
+        color: $black;
+      }
   }
 
   .fav-container p {
     line-height: 13px;
   }
+
+  
+
+
 
   @media (min-width: 700px) {
 

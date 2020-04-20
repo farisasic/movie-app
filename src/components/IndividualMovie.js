@@ -76,10 +76,10 @@ const IndividualMovie = (props) => {
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
                                         <h2 className="im-title">{movieTitle}</h2>
-                                        <div onclick={setFavourite} className="fav-container">
+                                        <button onclick={setFavourite} className="fav-container">
                                             <div className="heart-shape"></div>
                                             <p>Add to favourites</p>
-                                        </div>
+                                        </button>
                                         <h3>Overview</h3>
                                         <p>{movieDescription}</p>
                                         <div className="movie-text-flex">
