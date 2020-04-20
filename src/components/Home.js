@@ -4,54 +4,53 @@ import {API_KEY, POPULAR_URL,} from '../globals/variables';
 //import makeDate from '../utilities/dateMaker';
 //import IndividualMovie from '../components/IndividualMovie';
 
-const Home = () => {
+const Home = (props) => {
 
-
-        let initialTitle = '';
-        let initialMovieDescription = '';
-        let initialRating = '';
-        //let initialReleaseDate = '';
-        let initialPoster = '';
-        
-
-
-        const [movieTitle, setMovieTitle] = useState(initialTitle);
-        const [movieDescription, setMovieDescription] = useState(initialMovieDescription);
-        const [movieRating, setMovieRating] = useState(initialRating);
-        //const [releaseDate, setReleaseDate] = useState(initialReleaseDate);
-        const [poster, setPoster] = useState(initialPoster);
+    // App states
+    // const [popularMovieData, setPopularMovieData] = useState([]);
+    const [popularMovieTitle, setPopularMovieTitle] = useState([]);
+    const [popularMovieOverview, setPopularMovieOverview] = useState([]);
+    const [popularMovieRating, setPopularMovieRating] = useState([]);
+    const [popularMovieRelease, setPopularMovieRelease] = useState([]);
 
         useEffect(() => {
 
-            const fetchMovieInfo = async () => {
-                const res = await fetch (`${POPULAR_URL}?api_key=${API_KEY}&language=en-US`);
-                const movieData = await res.json();
+            const fetchPopularMovieInfo = async () => {
 
-                setMovieTitle(movieData.title);
-                setMovieDescription(movieData.overview);
-                setMovieRating(movieData.vote_average * 10);
-                //setReleaseDate(movieData.release_date);
-                setPoster(movieData.poster_path);
-                 console.log(movieData);
+                for(let i = 0; i < 20; i++){
+                    const res = await fetch (`${POPULAR_URL}?api_key=${API_KEY}&language=en-US&page=1`);
+                    const popularMovieData = await res.json();
+                    // setPopularMovieData(popularMovieData.results[i]);
+                    setPopularMovieTitle(popularMovieData.results[i].title);
+                    setPopularMovieOverview(popularMovieData.results[i].overview);
+                    setPopularMovieRating(popularMovieData.results[i].vote_average * 10);
+                    setPopularMovieRelease(popularMovieData.results[i].release_date);
+                }
             }
-            fetchMovieInfo();
+            fetchPopularMovieInfo();
     
             }, []);
 
-            
+            // Faris - here are console logs if you want to see how it's working
+            // console.log(popularMovieTitle);
+            // console.log(popularMovieOverview);
+            // console.log(popularMovieRating);
+            // console.log(popularMovieRelease);
+
         return (
             <main className="main-home">
                 <section className="section-home">
                     <div className="movie-grid">
                         <div className="individual-movie">
+                            <h1>{popularMovieTitle}</h1>
                         
-                        <img src={`https://image.tmdb.org/t/p/w185${poster}`} alt={movieTitle}></img>
+                        {/* <img src={`https://image.tmdb.org/t/p/w185${poster}`} alt={movieTitle2}></img> */}
                         
-                        <p>{movieDescription}</p>
+                        <p>{popularMovieOverview}</p>
                         <h3>Rating</h3>
-                        <p>{movieRating}%</p>
+                        <p>{popularMovieRating}%</p>
                         <h3>Release date</h3>
-                        <p></p>
+                        <p>{popularMovieRelease}</p>
                         </div>
                     </div>
                 </section>  
