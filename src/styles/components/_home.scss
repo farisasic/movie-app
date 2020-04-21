@@ -15,21 +15,19 @@ main{
     list-style: none;
 }
 
-.individual-movie {
-    display: flex;
-}
+
 
 @media only screen and (min-width: 700px) {
 
     .movie-grid{
-        grid-template-columns: repeat(6,1fr)
+        grid-template-columns: repeat(3,1fr)
     }
 }
 
 @media only screen and (min-width: 900px) {
 
     .movie-grid{
-        grid-template-columns: repeat(12,1fr)
+        grid-template-columns: repeat(6,1fr)
     }
 }
 
