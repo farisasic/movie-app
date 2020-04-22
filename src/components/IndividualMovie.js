@@ -59,11 +59,10 @@ const IndividualMovie = (props) => {
             return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
         }
 
-        function setFavourite(){
-            const favButton = document.getElementsByClassName('fav-container')[0];
+        function setFavourite() {
+            let favButton = document.getElementsByClassName('fav-container')[0];
             console.log(favButton);
-        }
-        setFavourite();
+            }
 
         return (
                 <main className="main-movie">
@@ -76,10 +75,10 @@ const IndividualMovie = (props) => {
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
                                         <h2 className="im-title">{movieTitle}</h2>
-                                        <button onClick={setFavourite} className="fav-container">
+                                        <div onClick={setFavourite()} className="fav-container">
                                             <div className="heart-shape"></div>
                                             <p>Add to favourites</p>
-                                        </button>
+                                        </div>
                                         <h3>Overview</h3>
                                         <p>{movieDescription}</p>
                                         <div className="movie-text-flex">
