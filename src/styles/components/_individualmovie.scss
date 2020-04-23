@@ -89,7 +89,7 @@
   }
 
   .fav-container {
-    background-color: transparent;
+      background-color: transparent;
       display: flex;
       justify-content: center;
       border: 1px solid white;
@@ -101,6 +101,13 @@
 
   .fav-container:active{
     background-color: white;
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+    padding: 25px 30px;
+    color: none;
+    width: 100%;
+    cursor: pointer;
       p{
         color: $black;
       }
@@ -108,11 +115,8 @@
 
   .fav-container p {
     line-height: 13px;
+    font-size: 0.9em;
   }
-
-  
-
-
 
   @media (min-width: 700px) {
 
