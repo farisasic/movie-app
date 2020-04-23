@@ -4,7 +4,7 @@ const movieResults = (arr) => {
     return arr && arr.map((result, i) =>{
         return (
             <div key={i} className={`movie-data-0${i+1}`}>
-                <h1>{result.title}</h1>
+                <h2>{result.title}</h2>
                 {<img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title}></img> }
                 <p>{result.overview}</p>
                 <h3>Rating</h3>
