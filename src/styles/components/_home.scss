@@ -12,7 +12,42 @@ main{
     padding-left: 10%;
     padding-right: 10%;
     margin-bottom: 0;
-    list-style: none;
+    color: $lightGray;
+    font-family: $bodyFont;
+    //align-items: center;
+    justify-items: center;
+
+    
+    
+        img {
+            
+            margin-left: auto;
+            margin-right: auto;
+            //width: 50%;
+        }
+    
+        h2, h3{
+            
+            color: $lightGreen;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        p {
+            
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        
+
+        img, h2, h3, p {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 }
 
 

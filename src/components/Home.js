@@ -26,7 +26,7 @@ const Home = () => {
             return (
                 <main className="main-home">
                     <section className="section-home">
-                        {popularMovieData && <MovieResultsTest results={popularMovieData} />}
+                        {popularMovieData && <MovieResultsTest results={popularMovieData}/>}
                     </section>
                 </main>
             );

@@ -12,6 +12,10 @@ export const API_DATA_MODE = '&mode=json';
 export const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 export const POPULAR_URL = 'https://api.themoviedb.org/3/movie/popular';
 export const FAV_URL = 'https://api.themoviedb.org/3/account/';
+export const TOP_RATED_URL = 'https://api.themoviedb.org/3/movie/top_rated';
+export const NOW_PLAYING_URL = 'https://api.themoviedb.org/3/movie/now_playing';
+export const UPCOMING_URL = 'https://api.themoviedb.org/3/movie/upcoming';
+
 
 
 // General App Settings
