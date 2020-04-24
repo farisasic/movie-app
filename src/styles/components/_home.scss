@@ -50,6 +50,20 @@ main{
         }
 }
 
+label {
+    font-size: 1rem;
+    font-family: $headingFont;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+}
+
+option{
+    font-family: $bodyFont;
+    background-color: $lightGreen;
+    color: $black;
+}
 
 
 @media only screen and (min-width: 550px) {

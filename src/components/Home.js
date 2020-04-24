@@ -11,7 +11,7 @@ const Home = () => {
 
         useEffect(() => {
             
-            const fetchPopularMovieInfo = async () => {
+            const fetchMovieInfo = async () => {
 
                     const res = await fetch (`${searchType}?api_key=${API_KEY}&language=en-US&page=1`);
                     let data = await res.json();
@@ -19,7 +19,7 @@ const Home = () => {
                    setMovieData(data.results);
                      
             }
-            fetchPopularMovieInfo();
+            fetchMovieInfo();
     
             }, [searchType]);
             const handleChange = (e) => {
@@ -31,12 +31,12 @@ const Home = () => {
             return (
                 <main className="main-home">
                     <form>
-                    <label htmlFor='choice'>Sort </label>
+                    <label htmlFor='choice'>Get Movie Info: </label>
                         <select onChange={handleChange} name='choice' id='choice' value={searchType}>
-                        <option value={POPULAR_URL}>Popular</option>
-                        <option value={TOP_RATED_URL}>Top Rated</option>
-                        <option value={NOW_PLAYING_URL}>Now Playing</option>
-                        <option value={UPCOMING_URL}>Upcoming Movies</option>
+                            <option value={POPULAR_URL}>Popular</option>
+                            <option value={TOP_RATED_URL}>Top Rated</option>
+                            <option value={NOW_PLAYING_URL}>Now Playing</option>
+                            <option value={UPCOMING_URL}>Upcoming</option>
                         </select>
                     </form>
                     <section className="section-home">
