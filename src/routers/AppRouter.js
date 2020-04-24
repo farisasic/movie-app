@@ -25,7 +25,7 @@ const AppRouter = () => (
         <Switch>
           <Route path="/" exact><Home /></Route>
           <Route path="/about"><About /></Route>
-          <Route path="/individual-movie"><IndividualMovie /></Route>
+          <Route path="/individual-movie/:id"><IndividualMovie /></Route>
           <Route path="/favourites"><Favourites /></Route>
           <Route><PageNotFound /></Route>
         </Switch>
