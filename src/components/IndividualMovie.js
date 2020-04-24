@@ -1,100 +1,111 @@
 import React, { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../globals/variables';
+import { useParams } from 'react-router-dom';
 
 const IndividualMovie = (props) => {
 
     // Page variables
-    let movie_id = '330457';
-    let initialTitle = '';
-    let initialMovieDescription = '';
-    let initialRating = '';
-    let initialReleaseDate = '';
-    let initialPoster = '';
-    let initialImageURL = '';
-    let initialImageSize = '';
+    let { id } = useParams();
+    // let initialMovieData = '';
+    // // let movie_id = '330457';
+    // let initialImageURL = '';
+    // let initialImageSize = '';
 
     // App states
-    const [movieTitle, setMovieTitle] = useState(initialTitle);
-    const [movieDescription, setMovieDescription] = useState(initialMovieDescription);
-    const [movieRating, setMovieRating] = useState(initialRating);
-    const [releaseDate, setReleaseDate] = useState(initialReleaseDate);
-    const [poster, setPoster] = useState(initialPoster);
-    const [imageURL, setImageURL] = useState(initialImageURL);
-    const [imageSize, setImageSize] = useState(initialImageSize);
+    const [movieData, setMovieData] = useState(null);
+
 
     // Movie info API call
     useEffect(() => {
 
         const fetchMovieInfo = async () => {
-            const res = await fetch (`${BASE_URL}${movie_id}?api_key=${API_KEY}&language=en-US`);
+            const res = await fetch (`${BASE_URL}${id}?api_key=${API_KEY}&language=en-US`);
             const movieData = await res.json();
-            setMovieTitle(movieData.title);
-            setMovieDescription(movieData.overview);
-            setMovieRating(movieData.vote_average * 10);
-            setReleaseDate(movieData.release_date);
-            setPoster(movieData.poster_path);
+            setMovieData(movieData);
         }
         fetchMovieInfo();
 
-        }, [movie_id]);
+        }, []);
 
 
         // Config API call
-        useEffect(() => {
+        // useEffect(() => {
 
-            const fetchMovieImages = async () => {
-                const res = await fetch (`https://api.themoviedb.org/3/configuration?api_key=${API_KEY}&language=en-US`);
-                const movieImages = await res.json();
-                setImageURL(movieImages.images.secure_base_url);
-                setImageSize(movieImages.images.poster_sizes[4]);
-            }
-            fetchMovieImages();
+        //     const fetchMovieImages = async () => {
+        //         const res = await fetch (`https://api.themoviedb.org/3/configuration?api_key=${API_KEY}&language=en-US`);
+        //         const movieImages = await res.json();
+        //         setImageURL(movieImages.images.secure_base_url);
+        //         setImageSize(movieImages.images.poster_sizes[4]);
+        //         console.log(movieImages.images.poster_sizes[4]);
+        //         console.log(movieImages.images.secure_base_url);
+        //     }
+        //     fetchMovieImages();
     
-            }, []);
+        //     }, []);
 
         // // Date maker - reformats the date
         const makeDate = () => {
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            const date = new Date(releaseDate);
+            const date = new Date(movieData.release_date);
             return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
         }
 
-        function setFavourite() {
-            let favButton = document.getElementsByClassName('fav-container')[0];
-            console.log(favButton);
-            }
+
+
+        const setFavourite = () => {
+        // let favButton = document.getElementsByClassName("fav-container")[0];
+        // let favClass = favButton.classList[0];
+        // console.log(favClass);
+
+        if(localStorage.getItem('favourite') === null){
+            let md = [movieData];
+            md = JSON.stringify(md);
+            localStorage.setItem('favourite', md);
+        }
+        
+        // localStorage.setItem('favourite', JSON.stringify(movieData));
+        
+        // if(favClass === "fav-container"){
+        //     let favButon = "fav-container:active";
+        //     console.log(favButton);
+        // }else{
+        //     console.log(favClass);
+        // }
+    }
+
 
         return (
                 <main className="main-movie">
                     <section className="section-movie">
-                        <div className="im-page">
+                        { movieData !== null && <div className="im-page">
                             <div className="movie-info-container">
                                 <div className="poster-container">
-                                <img src={`${imageURL}${imageSize}${poster}`} alt={movieTitle}></img>
+                                <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={movieData.title}></img>
                                 </div>
                                 <div className="poster-lower-half">
                                     <div className="im-movie-text">
-                                        <h2 className="im-title">{movieTitle}</h2>
-                                        <div onClick={setFavourite()} className="fav-container">
+                                        <h2 className="im-title">{movieData.title}</h2>
+                                        <div className="fav-container" onClick={() => {setFavourite(true)}}>
+                                        {/* <div className="fav-container" onClick={setFavourite()} > */}
                                             <div className="heart-shape"></div>
                                             <p>Add to favourites</p>
                                         </div>
                                         <h3>Overview</h3>
-                                        <p>{movieDescription}</p>
+                                        <p>{movieData.overview}</p>
                                         <div className="movie-text-flex">
                                             <div className="release">
                                                 <h3>Release date</h3>
-                                                <p>{makeDate(releaseDate)}</p>
+                                                <p>{makeDate(movieData.release_date)}</p>
                                             </div>
                                             <div className="rating">
                                                 <h3>Rating</h3>
-                                                <p>{movieRating}%</p>
+                                                <p>{movieData.vote_average * 10}%</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>}
                     </section>  
                 </main>
         )
