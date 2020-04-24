@@ -1,7 +1,10 @@
 import React from 'react';
 
 const movieResults = (arr) => {
-    return arr && arr.map((result, i) =>{
+    
+    const firstTwelveMovies = arr.slice(0,12);
+
+    return firstTwelveMovies.map((result, i) => {
         return (
             <div key={i} className={`movie-data-0${i+1}`}>
                 <h2>{result.title}</h2>

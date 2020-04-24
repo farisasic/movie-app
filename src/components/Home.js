@@ -1,32 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import {API_KEY, POPULAR_URL,} from '../globals/variables';
+import {API_KEY, POPULAR_URL, TOP_RATED_URL, NOW_PLAYING_URL, UPCOMING_URL} from '../globals/variables';
 import {MovieResultsTest} from './MovieResults';
 
 const Home = () => {
 
   // App states
-    const [popularMovieData, setPopularMovieData] = useState(null);
+    
+    const [movieData, setMovieData] = useState(null)
+    const [searchType, setSearchType] = useState(POPULAR_URL)
 
         useEffect(() => {
             
             const fetchPopularMovieInfo = async () => {
 
-                    const res = await fetch (`${POPULAR_URL}?api_key=${API_KEY}&language=en-US&page=1`);
+                    const res = await fetch (`${searchType}?api_key=${API_KEY}&language=en-US&page=1`);
                     let data = await res.json();
                     
-                    setPopularMovieData(data.results);
+                   setMovieData(data.results);
                      
             }
             fetchPopularMovieInfo();
     
-            }, []);
-
-            console.log(popularMovieData);
+            }, [searchType]);
+            const handleChange = (e) => {
+                const value = e.target.value;
+             setSearchType(value);   
+            }
+            
 
             return (
                 <main className="main-home">
+                    <form>
+                    <label htmlFor='choice'>Sort </label>
+                        <select onChange={handleChange} name='choice' id='choice' value={searchType}>
+                        <option value={POPULAR_URL}>Popular</option>
+                        <option value={TOP_RATED_URL}>Top Rated</option>
+                        <option value={NOW_PLAYING_URL}>Now Playing</option>
+                        <option value={UPCOMING_URL}>Upcoming Movies</option>
+                        </select>
+                    </form>
                     <section className="section-home">
-                        {popularMovieData && <MovieResultsTest results={popularMovieData}/>}
+                        {movieData && <MovieResultsTest results={movieData}/>}
                     </section>
                 </main>
             );
