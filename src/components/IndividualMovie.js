@@ -43,7 +43,8 @@ const IndividualMovie = (props) => {
             let favourited = true;
             setFavourited(favourited);
         }else if (localStorage.getItem('favourite') !== null ){
-            localStorage.removeItem('favourite');
+            let md = [];
+            localStorage.removeItem('favourite', md);
             let favourited = false;
             setFavourited(favourited);
         }
@@ -83,7 +84,7 @@ const IndividualMovie = (props) => {
                                         <h2 className="im-title">{movieData.title}</h2>
                                         <div id="fav-container" className="fav-container" onClick={() => {setFavourite(true)}}>
                                             <div className="heart-shape"></div>
-                                            {favourited ? <p>Add to favourites</p> : <p>Added to favourites</p>}
+                                            {favourited ? <p>Added to favourites</p> : <p>Add to favourites</p>}
                                         </div>
                                         <h3>Overview</h3>
                                         <p>{movieData.overview}</p>
