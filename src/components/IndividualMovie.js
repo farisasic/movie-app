@@ -52,10 +52,19 @@ const IndividualMovie = (props) => {
             }else if(localStorage.getItem('favourite')){
                 let md = [];
                 md = JSON.parse(localStorage.getItem('favourite')) || [];
-                // console.log(md[i].id);
-                // if(movieData.id == md.id)
+                for(let i = 0; i < md.length; i++) {
+                    if (movieData.id === md[i].id) {
+                        console.log("don't add to localStorage");
+                        return;
+                    }else if (movieData.id !== md[i].id){
+                        console.log("add to localStorage");
+                        continue;
+                    }
+                }
+
                 md.push(movieData);
                 localStorage.setItem('favourite', JSON.stringify(md));
+
 
                 let favButton = document.getElementById("fav-container");
         
@@ -64,23 +73,6 @@ const IndividualMovie = (props) => {
                 }
             }
     }
-
-
-        // const removeFavourite = (favIndex) => {
-
-        //     let updatedMd  = [...md];
-
-        //     localStorage.removeItem('favourite');
-            
-        //     let favButton = document.getElementById("fav-container");
-        //     console.log(favButton);
-
-        //     if(favButton.className === "fav-active"){
-        //         favButton.className = "fav-container";
-        //     }
-
-        // }
-
 
         return (
                 <main className="main-movie">
