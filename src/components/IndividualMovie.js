@@ -36,39 +36,50 @@ const IndividualMovie = (props) => {
 
         const setFavourite = () => {
 
-        if(localStorage.getItem('favourite') === null){
-            let md = [movieData];
-            md = JSON.stringify(md);
-            localStorage.setItem('favourite', md);
-            let favourited = true;
-            setFavourited(favourited);
-        }else if (localStorage.getItem('favourite') !== null ){
-            let md = [];
-            localStorage.removeItem('favourite', md);
-            let favourited = false;
-            setFavourited(favourited);
-        }
+            if(localStorage.getItem('favourite') === null){
+                let md = [movieData];
+                md = JSON.stringify(md);
+                localStorage.setItem('favourite', md);
+                let favourited = true;
+                setFavourited(favourited);
 
-        let favButton = document.getElementById("fav-container");
-        console.log(favButton);
+                let favButton = document.getElementById("fav-container");
+        
+                if(favButton.className === "fav-container"){
+                    favButton.className = "fav-active";
+                }
+    
+            }else if(localStorage.getItem('favourite')){
+                let md = [];
+                md = JSON.parse(localStorage.getItem('favourite')) || [];
+                // console.log(md[i].id);
+                // if(movieData.id == md.id)
+                md.push(movieData);
+                localStorage.setItem('favourite', JSON.stringify(md));
 
-        if(favButton.className === "fav-container"){
-            favButton.className = "fav-active";
-        }else if(favButton.className === "fav-active"){
-            favButton.className = "fav-container";
-        }
+                let favButton = document.getElementById("fav-container");
+        
+                if(favButton.className === "fav-container"){
+                    favButton.className = "fav-active";
+                }
+            }
     }
 
-    // const removeFavourite = () => {
-        
-    //     let favButton = document.getElementsByClassName("fav-container")[0];
-    //     console.log(favButton);
 
-    //     if(favButton.className === "fav-active"){
-    //         favButton.className = "fav-container";
-    //     }
+        // const removeFavourite = (favIndex) => {
 
-    // }
+        //     let updatedMd  = [...md];
+
+        //     localStorage.removeItem('favourite');
+            
+        //     let favButton = document.getElementById("fav-container");
+        //     console.log(favButton);
+
+        //     if(favButton.className === "fav-active"){
+        //         favButton.className = "fav-container";
+        //     }
+
+        // }
 
 
         return (
@@ -108,3 +119,25 @@ const IndividualMovie = (props) => {
     }
 
 export default IndividualMovie;
+
+
+    // const getStorage = () => {
+    //     let item = localStorage.getItem('favourite');
+    //     if(item){
+    //         item = JSON.parse(item);
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+
+    // const removeFromStorage = (movieData) => {
+    //     let favItems = getStorage();
+    //     const isFav = (current) => current.movieData === movieData;
+    //     let indexOfItemToRemove = favItems.findIndex(isFav);
+    //     favItems.splice(indexOfItemToRemove, 1);
+    //     let itemsForStorage = JSON.stringify(favItems);
+    //     localStorage.setItem('favourite', movieData);
+    //     return favItems;
+    // }
+    // removeFromStorage();
