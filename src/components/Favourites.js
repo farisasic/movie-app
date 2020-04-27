@@ -23,7 +23,9 @@ const Favourites = () => {
     return (
         <main className="main-home">
             <section className="section-home">
-                {favMovieData && <FavMovies results={favMovieData}/>}
+                <div className="fav-content">
+                    {favMovieData ? <FavMovies results={favMovieData}/> : <p className="favourites-p">There are no movies currently saved to your favourites.</p>}
+                </div>
             </section>
         </main>
     );
