@@ -72,6 +72,22 @@ button a {
     padding: 40px 20px;
     max-width: 385px;
     min-height: 641.16px;
+
+        .rem-fav{
+            display: flex;
+            justify-content: center;
+            
+            margin-bottom: 30px;
+        
+         .remove-fav {
+            
+            cursor: pointer;
+            text-decoration: none;
+            color: $lightGreen;
+            font-size: 14.4px;
+            background-color: $black;
+        }
+    }
 }
 
 .fav-overview {
