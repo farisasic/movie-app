@@ -38,6 +38,7 @@ main{
             
             text-align: left;
             font-size: 0.9rem;
+            color: white;
         }
 
         
@@ -50,9 +51,13 @@ main{
             
         }
 
-        h2, a {
-            text-decoration: none;
+        h2 a {
             color: $lightGreen;
+        }
+
+        a {
+            text-decoration: none;
+            color: $black;
             transition: all 1s ease;
 
             &:hover {
@@ -77,14 +82,21 @@ option, select{
 }
 
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 740px) {
     .movie-grid{
         grid-template-columns: repeat(2,1fr)
     }
 
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1200px) {
+    .movie-grid{
+        grid-template-columns: repeat(3,1fr)
+    }
+
+}
+
+@media only screen and (min-width: 1600px) {
     .movie-grid{
         grid-template-columns: repeat(4,1fr)
     }
