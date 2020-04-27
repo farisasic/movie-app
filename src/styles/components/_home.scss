@@ -6,7 +6,6 @@ main{
 .movie-grid{
     display: grid;
     grid-template-columns: repeat(1,1fr);
-   // grid-template-rows: repeat (500px, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     padding-top: 5%;
@@ -15,16 +14,13 @@ main{
     margin-bottom: 0;
     color: $lightGray;
     font-family: $bodyFont;
-    //align-items: center;
     justify-items: center;
 
     
     
         img {
-            
             margin-left: auto;
             margin-right: auto;
-            //width: 50%;
         }
     
         h2, h3{
@@ -66,8 +62,20 @@ main{
         }
 }
 
+form {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 50px;
+    margin: 15px 15px 0 15px;
+    padding-top: 20px;
+    padding-left: 0;
+    max-width: 385px;
+    margin: 0 auto;
+    text-align: right;
+}
+
 label {
-    font-size: 1rem;
+    font-size: 1.4em;
     font-family: $headingFont;
     font-style: italic;
     font-weight: 400;
@@ -76,15 +84,107 @@ label {
 }
 
 option, select{
-    font-family: $bodyFont;
+    -webkit-appearance: none;
+    font-family: $headingFont;
     background-color: $lightGreen;
-    color: $black;
+    color: white;
+    font-size: 16px;
+    margin-left: 15px;
+    padding-left: 10px;
+    border: none;
+    height: 35px;
+    width: 130px;
+    border-radius: 0px;
 }
 
+.navbar{
+    background-color: $black;
+    list-style: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+ul{
+    
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    margin: 15px 15px 0 15px;
+    padding-top: 20px;
+    padding-left: 0;
+    max-width: 385px;
+    margin: 0 auto;
+    font-family: $headingFont;
+}
+
+li{
+    list-style: none;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+li a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    background-color: $lightGreen;
+    border: $lightGreen 1px solid;
+    padding: 10px;
+}
+
+@media only screen and (min-width: 700px){
+
+    ul{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+    li a{
+       font-size: 1.3rem;
+       
+    }
+
+    option, select{
+        font-size: 1.3rem;
+        height: 40px;
+        width: 165px;
+    }
+
+    form {
+        align-items: center;
+    }
+}
 
 @media only screen and (min-width: 740px) {
+
+    .nav-flex {
+        display: flex;
+        flex-grow: 2;
+        justify-content: center;
+    }
+
+    .navbar {
+        display: flex;
+        padding-top: 0px;
+        margin: 15px 15px 0 15px;
+        padding-top: 20px;
+        padding-left: 0;
+        max-width: 385px;
+        margin: 0 auto;
+        text-align: right;
+    }
+
+    ul {
+        padding-top: 10px;
+    }
+
     .movie-grid{
-        grid-template-columns: repeat(2,1fr)
+        grid-template-columns: repeat(2,1fr);
+        padding-top: 2%;
     }
 
 }
@@ -95,15 +195,6 @@ option, select{
     }
 
 }
-
-@media only screen and (min-width: 1600px) {
-    .movie-grid{
-        grid-template-columns: repeat(4,1fr)
-    }
-    
-    
-}
-
 
 
 

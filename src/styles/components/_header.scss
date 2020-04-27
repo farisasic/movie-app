@@ -7,43 +7,6 @@ header{
     margin: 0;
 }
 
-.navbar{
-    background-color: $black;
-    list-style: none;
-    text-decoration: none;
-    text-transform: uppercase;
-    
-    padding-top: 20px;
-}
-
-ul{
-    
-    display: flex;
-    list-style: none;
-    text-decoration: none;
-    justify-content: space-evenly;
-    color: white;
-    margin: 15px 15px 0 15px;
-    
-    padding-top: 20px;
-    padding-left: 0;
-    max-width: 1000px;
-}
-
-li{
-    list-style: none;
-    text-decoration: none;
-}
-
-li a{
-    list-style: none;
-    text-decoration: none;
-    color: white;
-    background-color: $lightGreen;
-    border: $lightGreen 1px solid;
-    padding: 10px;
-}
-
 .logo {
     padding-bottom: 20px;
     max-width: 1000px;
@@ -72,32 +35,13 @@ li a{
 
 @media only screen and (min-width: 700px){
 
-    ul{
-        display: flex;
-        justify-content: flex-end;
-        //margin: 15px;
-    }
-
-    li{
-        padding-right: 10px;
-    }
-
-    li a{
-       font-size: 1.3rem;
-       
-    }
-
     .logo h1{
         display: inline-block;
-        //margin: 0;
         padding: 20px;
         color: white;
         position: relative;
         padding-bottom: 5px;
         font-size: 2.7rem;
-        //padding-left: 40px;
     }
-
-
 
 }

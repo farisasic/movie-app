@@ -24,7 +24,6 @@ const movieResults = (arr) => {
                 <div className="movie-container">
                     {<img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title}></img> }
                     {titleText.length > TITLE_MAX_LENGTH ? <h2>{`${titleText.substring(0, TITLE_MAX_LENGTH)}...`}</h2> : <h2>{titleText}</h2>}
-                    {/* <h2><Link to={`/individual-movie/${result.id}`}>{result.title}</Link></h2> */}
                     {text.length > MAX_LENGTH ? <p className="fav-overview">{`${text.substring(0, MAX_LENGTH)}...`}</p> : <p>{text}</p>}
                     <div className="grid-content">
                         <div className="rating">
