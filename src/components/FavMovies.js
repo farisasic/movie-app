@@ -23,7 +23,7 @@ const favMovies = (arr) => {
                     <div className="rem-fav">
                         <button className="remove-fav">Remove</button>
                     </div>
-                    {<img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title}></img> }
+                    {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title} /> : <img src='../images/poster-backup-small' alt='Poster-not-available image'/> }
                     <h2><Link className="title-link" to={`/individual-movie/${result.id}`}>{result.title}</Link></h2>
                     {text.length > MAX_LENGTH ? <p className="fav-overview">{`${text.substring(0, MAX_LENGTH)}...`}</p> : <p>{text}</p>}
                     <div className="grid-content">

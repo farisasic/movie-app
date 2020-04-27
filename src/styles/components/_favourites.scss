@@ -4,44 +4,6 @@
     justify-content: center;
 }
 
-.fav-navbar{
-    background-color: $black;
-    list-style: none;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding-top: 20px;
-}
-
-.fav-ul{
-    
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    text-decoration: none;
-    color: white;
-    margin: 15px 15px 0 15px;
-    padding-top: 20px;
-    padding-left: 0;
-    max-width: 385px;
-    margin: 0 auto;
-    font-family: $headingFont;
-}
-
-.fav-li{
-    list-style: none;
-    text-decoration: none;
-    padding-left: 10px;
-}
-
-.fav-li a{
-    list-style: none;
-    text-decoration: none;
-    color: white;
-    background-color: $lightGreen;
-    border: $lightGreen 1px solid;
-    padding: 10px;
-}
-
 .favourites-p {
     color: white;
     font-family: $bodyFont;
@@ -136,40 +98,4 @@ button a {
     text-decoration: none;
     color: $lightGreen;
     font-size: 14.4px;
-}
-
-@media only screen and (min-width: 700px){
-
-    // .fav-ul{
-    //     display: flex;
-    //     justify-content: flex-end;
-    // }
-
-
-    .fav-li a{
-       font-size: 1.3rem;
-    }
-}
-
-@media only screen and (min-width: 740px) {
-
-    .fav-nav-flex {
-        display: flex;
-        flex-grow: 2;
-        justify-content: flex-end;
-    }
-
-    .fav-navbar {
-        display: flex;
-        padding-top: 0px;
-        margin: 15px 15px 0 15px;
-        padding-top: 20px;
-        padding-left: 0;
-        min-width: 590px;
-        text-align: right;
-    }
-
-    .fav-ul {
-        padding-top: 10px;
-    }
 }

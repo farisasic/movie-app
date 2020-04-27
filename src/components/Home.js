@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {API_KEY, POPULAR_URL, TOP_RATED_URL, NOW_PLAYING_URL, UPCOMING_URL} from '../globals/variables';
 import {DbMovieResults} from './MovieResults';
-import { NavLink } from 'react-router-dom';
+import HomeNav from './HomeNav';
 
 const Home = () => {
 
@@ -41,19 +41,7 @@ const Home = () => {
                                 <option value={UPCOMING_URL}>Upcoming &#8595;</option>
                             </select>
                         </form>
-                        <nav className="home-navbar">
-                            <ul className="home-ul">
-                                <li className="home-li">
-                                    <NavLink to="/" exact>Home</NavLink>
-                                </li>
-                                <li className="home-li">
-                                    <NavLink to="/about">About</NavLink>
-                                </li>
-                                <li className="home-li">
-                                    <NavLink to="/favourites">Favourites</NavLink>
-                                </li>
-                            </ul>
-                        </nav>  
+                        <HomeNav />
                     </div>
                     <section className="section-home">
                         {movieData && <DbMovieResults results={movieData}/>}

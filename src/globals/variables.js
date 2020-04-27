@@ -17,12 +17,15 @@ export const NOW_PLAYING_URL = 'https://api.themoviedb.org/3/movie/now_playing';
 export const UPCOMING_URL = 'https://api.themoviedb.org/3/movie/upcoming';
 
 
-
 // General App Settings
 export const APP_FOLDER_NAME = '/movie-app';
 
 // LocalStorage Defaults
 export const STORAGE_CURRENT_MOVIES = 'movie-app-current-movies';
 export const STORAGE_FAV_MOVIES = 'movie-app-favourites';
+
+// Length constants
+export const MAX_LENGTH = 100;
+export const TITLE_MAX_LENGTH = 30;
 
 

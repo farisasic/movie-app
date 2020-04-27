@@ -90,7 +90,7 @@ const IndividualMovie = (props) => {
                 { movieData !== null && <div className="im-page">
                     <div className="movie-info-container">
                         <div className="poster-container">
-                        <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={movieData.title}></img>
+                        {movieData.poster_path ? <img src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={movieData.title} /> : <img src='../images/poster-backup-large' alt='Poster-not-available image'/>}
                         </div>
                         <div className="poster-lower-half">
                             <div className="im-movie-text">

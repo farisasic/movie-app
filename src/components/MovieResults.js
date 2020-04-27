@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MAX_LENGTH, TITLE_MAX_LENGTH } from '../globals/variables';
 
 const movieResults = (arr) => {
     
     const firstTwelveMovies = arr.slice(0,12);
-    const MAX_LENGTH = 100;
-    const TITLE_MAX_LENGTH = 30;
 
     return firstTwelveMovies.map((result, i) => {
 
-        // Date maker - reformats the date
+        // // Date maker - reformats the date
         const makeDate = () => {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const date = new Date(result.release_date);
@@ -22,7 +21,7 @@ const movieResults = (arr) => {
         return (
             <div key={i} className={`movie-data-0${i+1}`}>
                 <div className="movie-container">
-                    {<img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title}></img> }
+                    {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title} /> : <img src='../images/poster-backup-small' alt='Poster-not-available image'/> }
                     {titleText.length > TITLE_MAX_LENGTH ? <h2>{`${titleText.substring(0, TITLE_MAX_LENGTH)}...`}</h2> : <h2>{titleText}</h2>}
                     {text.length > MAX_LENGTH ? <p className="fav-overview">{`${text.substring(0, MAX_LENGTH)}...`}</p> : <p>{text}</p>}
                     <div className="grid-content">

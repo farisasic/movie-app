@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FavMovies } from './FavMovies';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import PageNav from './PageNav';
 
 
 const Favourites = () => {
@@ -24,7 +25,8 @@ const Favourites = () => {
     return (
         <main className="main-home">
             <section className="section-home">
-                <div className="fav-nav-flex">
+                <PageNav />
+                {/* <div className="fav-nav-flex">
                     <nav className="fav-navbar">
                         <ul className="fav-ul">
                             <li className="fav-li">
@@ -37,8 +39,8 @@ const Favourites = () => {
                                 <NavLink to="/favourites">Favourites</NavLink>
                             </li>
                         </ul>
-                    </nav>  
-                </div>
+                    </nav>   */}
+                {/* </div> */}
                 <div className="fav-content">
                     {favMovieData ? <FavMovies results={favMovieData}/> : <p className="favourites-p">There are no movies currently saved to your favourites.</p>}
                 </div>
