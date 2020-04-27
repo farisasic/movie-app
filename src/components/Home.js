@@ -41,15 +41,15 @@ const Home = () => {
                                 <option value={UPCOMING_URL}>Upcoming &#8595;</option>
                             </select>
                         </form>
-                        <nav className="navbar">
-                            <ul>
-                                <li>
+                        <nav className="home-navbar">
+                            <ul className="home-ul">
+                                <li className="home-li">
                                     <NavLink to="/" exact>Home</NavLink>
                                 </li>
-                                <li>
+                                <li className="home-li">
                                     <NavLink to="/about">About</NavLink>
                                 </li>
-                                <li>
+                                <li className="home-li">
                                     <NavLink to="/favourites">Favourites</NavLink>
                                 </li>
                             </ul>

@@ -97,7 +97,7 @@ option, select{
     border-radius: 0px;
 }
 
-.navbar{
+.home-navbar{
     background-color: $black;
     list-style: none;
     text-decoration: none;
@@ -105,7 +105,7 @@ option, select{
     padding-top: 20px;
 }
 
-ul{
+.home-ul{
     
     display: flex;
     justify-content: flex-end;
@@ -120,13 +120,13 @@ ul{
     font-family: $headingFont;
 }
 
-li{
+.home-li{
     list-style: none;
     text-decoration: none;
     padding-left: 10px;
 }
 
-li a{
+.home-li a{
     list-style: none;
     text-decoration: none;
     color: white;
@@ -137,13 +137,13 @@ li a{
 
 @media only screen and (min-width: 700px){
 
-    ul{
+    .home-ul{
         display: flex;
         justify-content: flex-end;
     }
 
 
-    li a{
+    .home-li a{
        font-size: 1.3rem;
        
     }
@@ -167,7 +167,7 @@ li a{
         justify-content: center;
     }
 
-    .navbar {
+    .home-navbar {
         display: flex;
         padding-top: 0px;
         margin: 15px 15px 0 15px;
@@ -178,7 +178,7 @@ li a{
         text-align: right;
     }
 
-    ul {
+    .home-ul {
         padding-top: 10px;
     }
 
