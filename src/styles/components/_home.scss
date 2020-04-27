@@ -3,65 +3,6 @@ main{
     
 }
 
-.movie-grid{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-bottom: 0;
-    color: $lightGray;
-    font-family: $bodyFont;
-    justify-items: center;
-
-    
-    
-        img {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    
-        h2, h3{
-            
-            color: $lightGreen;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        p {
-            
-            text-align: left;
-            font-size: 0.9rem;
-            color: white;
-        }
-
-        
-
-        img, h2, h3, p {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            
-        }
-
-        h2 a {
-            color: $lightGreen;
-        }
-
-        a {
-            text-decoration: none;
-            color: $black;
-            transition: all 1s ease;
-
-            &:hover {
-                color: white;
-            }
-        }
-}
-
 form {
     display: flex;
     justify-content: flex-end;
@@ -109,22 +50,5 @@ option, select{
         align-items: center;
     }
 }
-
-@media only screen and (min-width: 740px) {
-
-    .movie-grid{
-        grid-template-columns: repeat(2,1fr);
-        padding-top: 2%;
-    }
-
-}
-
-@media only screen and (min-width: 1200px) {
-    .movie-grid{
-        grid-template-columns: repeat(3,1fr)
-    }
-
-}
-
 
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import PageNav from './PageNav';
 
-class About extends React.Component {
-    render(){
+const About = () => {
         return(
             <main className="main-about">
                 <div className="about-content">
@@ -30,6 +29,5 @@ class About extends React.Component {
             </main>
         )
     }
-}
 
 export default About;

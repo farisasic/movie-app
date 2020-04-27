@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class PageNotFound extends React.Component {
-    render(){
+const PageNotFound = () => {
         return(
             <main className="main-404">
                 <section className="section-404">
@@ -15,6 +14,5 @@ class PageNotFound extends React.Component {
         </main>
         )
     }
-}
 
 export default PageNotFound;
