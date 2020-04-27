@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {MAX_LENGTH, TITLE_MAX_LENGTH} from '../globals/variables';
 
 const favMovies = (arr) => {
-
-    const MAX_LENGTH = 100;
 
     return arr.map((result, i) => {
 
@@ -21,8 +20,9 @@ const favMovies = (arr) => {
             <div key={i} className={`movie-data-0${i+1}`}>
                 <div className="movie-container">
                     <div className="rem-fav">
-                        <button className="remove-fav">Remove</button>
-                    </div>
+                        <button className="remove-fav" >Remove</button>
+                    </div> 
+                    
                     {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title} /> : <img src='../images/poster-backup-small' alt='Poster-not-available'/> }
                     <h2><Link className="title-link" to={`/individual-movie/${result.id}`}>{result.title}</Link></h2>
                     {text.length > MAX_LENGTH ? <p className="fav-overview">{`${text.substring(0, MAX_LENGTH)}...`}</p> : <p>{text}</p>}
@@ -44,8 +44,8 @@ const favMovies = (arr) => {
                     </div>
                 </div>
             </div>
-        );
-    } 
+        ); 
+    }
 )} 
 export const FavMovies = (props) => (
     <div className="movie-grid">
