@@ -54,8 +54,8 @@ const IndividualMovie = (props) => {
                 md = JSON.parse(localStorage.getItem('favourite')) || [];
                 for(let i = 0; i < md.length; i++) {
                     if (movieData.id === md[i].id) {
-                        let index = md.indexOf(md[i].id);
-                        md.splice(index, i);
+                        console.log(i);
+                        md.splice(i, 1);
                         md = JSON.stringify(md);
                         localStorage.setItem('favourite', md);
                         let favourited = false;
@@ -95,26 +95,18 @@ const IndividualMovie = (props) => {
                         <div className="poster-lower-half">
                             <div className="im-movie-text">
                                 <h2 className="im-title">{movieData.title}</h2>
-    
                                 {favourited
-    
                                 ?
-    
                                 <div id="fav-container" className="fav-active" onClick={() => {setFavourite()}}>
                                     <div className="heart-shape"></div>
                                     <p>Added to favourites</p>
                                 </div>
-    
                                 :
-    
                                 <div id="fav-container" className="fav-container" onClick={() => {setFavourite()}}>
                                     <div className="heart-shape"></div>
                                     <p>Add to favourites</p>
                                 </div>
-    
                                 }
-    
-    
                                 <h3>Overview</h3>
                                 <p>{movieData.overview}</p>
                                 <div className="movie-text-flex">
