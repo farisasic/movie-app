@@ -6,7 +6,7 @@ class Header extends React.Component {
         return(
             <header>
                 <div className="logo">
-                    <h1><Link className="logo-link" to="/" exact>Cinedex</Link></h1>
+                    <h1><Link className="logo-link" to="/">Cinedex</Link></h1>
                 </div>
             </header>
         )

@@ -1,11 +1,13 @@
 import React from 'react';
+import PageNav from './PageNav';
 
 class About extends React.Component {
     render(){
         return(
-            <main class="main-about">
-                <section class="section-about">
-                    <h1 class="about-h1">Welcome to Cinedex!</h1>
+            <main className="main-about">
+                <section className="section-about">
+                    <PageNav />
+                    <h1 className="about-h1">Welcome to Cinedex!</h1>
                 </section>  
                 <section>
                     <h2>About the project</h2>
