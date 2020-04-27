@@ -21,7 +21,7 @@ const favMovies = (arr) => {
             <div key={i} className={`movie-data-0${i+1}`}>
                 <div className="movie-container">
                     <div className="rem-fav">
-                        <button className="remove-fav" onClick={`movie-data-0${i-1}`}>Remove</button>
+                        <button className="remove-fav">Remove</button>
                     </div>
                     {<img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title}></img> }
                     <h2><Link className="title-link" to={`/individual-movie/${result.id}`}>{result.title}</Link></h2>
