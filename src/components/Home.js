@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {API_KEY, POPULAR_URL, TOP_RATED_URL, NOW_PLAYING_URL, UPCOMING_URL} from '../globals/variables';
-import {MovieResultsTest} from './MovieResults';
+import {DbMovieResults} from './MovieResults';
 
 const Home = () => {
 
@@ -31,7 +31,7 @@ const Home = () => {
             return (
                 <main className="main-home">
                     <form>
-                    <label htmlFor='choice'>Get Movie Info: </label>
+                    <label htmlFor='choice'>Get Movie List: </label>
                         <select onChange={handleChange} name='choice' id='choice' value={searchType}>
                             <option value={POPULAR_URL}>Popular</option>
                             <option value={TOP_RATED_URL}>Top Rated</option>
@@ -40,7 +40,7 @@ const Home = () => {
                         </select>
                     </form>
                     <section className="section-home">
-                        {movieData && <MovieResultsTest results={movieData}/>}
+                        {movieData && <DbMovieResults results={movieData}/>}
                     </section>
                 </main>
             );
