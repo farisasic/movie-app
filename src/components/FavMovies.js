@@ -17,7 +17,7 @@ export const FavMovies = (props) => {
                         <div className="rem-fav">
                             <button onClick={() => {props.removeFav(result)}} className="remove-fav" >Remove</button>
                         </div> 
-                        {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w185${result.poster_path}`} alt={result.title} /> : <img src={require('../images/poster-backup-small')} alt='Poster-not-available'/> }
+                        {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w342${result.poster_path}`} alt={result.title} /> : <img src={require('../images/poster-backup-small')} alt='Poster-not-available'/> }
                         {titleText.length > TITLE_MAX_LENGTH ? <h2><Link className="title-link" to={`/individual-movie/${result.id}`}>{`${titleText.substring(0, TITLE_MAX_LENGTH)}...`}</Link></h2> : <h2>{titleText}</h2>}
                         {text.length > MAX_LENGTH ? <p className="fav-overview">{`${text.substring(0, MAX_LENGTH)}...`}</p> : <p>{text}</p>}
                         <div className="grid-content">
