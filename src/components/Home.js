@@ -28,7 +28,6 @@ const Home = () => {
              setSearchType(value);   
             }
             
-
             return (
                 <main className="main-home">
                     <div className="nav-flex">            
