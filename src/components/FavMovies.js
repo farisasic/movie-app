@@ -13,10 +13,7 @@ export const FavMovies = (props) => {
             
             return (
                 <div key={i} className={`movie-data-0${i+1}`}>
-                    <div className="movie-container">
-                        <div className="rem-fav">
-                            <button onClick={() => {props.removeFav(result)}} className="remove-fav" >Remove</button>
-                        </div> 
+                    <div className="fav-movie-container">
                         {result.poster_path ? <img src={`https://image.tmdb.org/t/p/w342${result.poster_path}`} alt={result.title} /> : <img src={require('../images/poster-backup-small')} alt='Poster-not-available'/> }
                         {titleText.length > TITLE_MAX_LENGTH ? <h2><Link className="title-link" to={`/individual-movie/${result.id}`}>{`${titleText.substring(0, TITLE_MAX_LENGTH)}...`}</Link></h2> : <h2>{titleText}</h2>}
                         {text.length > MAX_LENGTH ? <p className="fav-overview">{`${text.substring(0, MAX_LENGTH)}...`}</p> : <p>{text}</p>}
@@ -33,6 +30,9 @@ export const FavMovies = (props) => {
                         <div className="btn-div">
                             <button className="btn-more-info"><Link to={`/individual-movie/${result.id}`}>More info</Link></button>
                         </div>
+                        <div className="rem-fav">
+                            <button onClick={() => {props.removeFav(result)}} className="remove-fav" >Remove</button>
+                        </div> 
                     </div>
                 </div>
             ); 
