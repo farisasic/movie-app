@@ -21,7 +21,7 @@ export const UPCOMING_URL = 'https://api.themoviedb.org/3/movie/upcoming';
 export const APP_FOLDER_NAME = '/movie-app';
 
 // Length constants
-export const MAX_LENGTH = 100;
+export const MAX_LENGTH = 110;
 export const TITLE_MAX_LENGTH = 30;
 
 
