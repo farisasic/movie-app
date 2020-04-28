@@ -31,7 +31,7 @@ export const FavMovies = (props) => {
                             <button className="btn-more-info"><Link to={`/individual-movie/${result.id}`}>More info</Link></button>
                         </div>
                         <div className="rem-fav">
-                            <button onClick={() => {props.removeFav(result)}} className="remove-fav" >Remove</button>
+                            <button onClick={() => {props.removeFav(result)}} className="remove-fav" >Unfavourite</button>
                         </div> 
                     </div>
                 </div>

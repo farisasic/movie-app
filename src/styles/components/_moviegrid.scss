@@ -121,31 +121,6 @@ button a {
     }
 }
 
-// .fav-movie-container {
-//     margin-top: 30px;
-//     background-color: $darkGray;
-//     padding: 40px 20px;
-//     max-width: 385px;
-//     min-height: 641.16px;
-
-//         .rem-fav{
-//             display: flex;
-//             justify-content: center;
-            
-//             margin-bottom: 30px;
-
-//             .remove-fav {
-            
-//             cursor: pointer;
-//             text-decoration: none;
-//             color: $lightGreen;
-//             font-size: 14.4px;
-//             background-color: $black;
-//         }
-// }
-
-// }
-
 .fav-overview {
     color: white;
 }
@@ -161,6 +136,10 @@ button a {
     .movie-grid{
         grid-template-columns: repeat(2,1fr);
         padding-top: 2%;
+    }
+
+    .movie-container {
+        height: 850px;
     }
 
 }

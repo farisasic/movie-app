@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FavMovies } from './FavMovies';
 import PageNav from './PageNav';
+import { Link } from 'react-router-dom';
 
 const Favourites = () => {
 
@@ -37,11 +38,7 @@ const Favourites = () => {
                         <div className="fav-content">
                             {favMovieData && <FavMovies removeFav={removeFav} results={favMovieData}/>}
                             {(favMovieData === null || favMovieData.length === 0) &&
-                            <p className="favourites-p">
-                            There are no movies currently saved to your favourites. Please return to the home page to add a
-                            favourite movie.
-                            </p>
-                            }
+                            <p className="no-favs-p">There are no movies currently saved to your favourites. Please return to the <Link className="title-link" to={`/`}>home page</Link> to add a favourite movie.</p>}
                         </div>
                     </section>
                 </main>

@@ -12,7 +12,7 @@ const About = () => {
                 <section>
                     <h2 className="about-h2">About the project</h2>
                         <p className="about-p">
-                        Cinedex is the premier movie database listing movies that can easily be found via their popularity, rating or release date. Found a movie you like? Add it to your favourites list to find its release date, the synopsis and so much more! Visit Cinedex at your leisure and it wont be a displeasure. 
+                        Cinedex is the premier movie database listing movies that can easily be found via their popularity, rating or release date. Found a movie you like? Add it to your favourites list to find its release date, the synopsis and more.
                         </p>
                         <img src={require('../images/moviedb-image.svg')} alt="TMDb logo" className="about-img"/>
                         <p className="about-p">
