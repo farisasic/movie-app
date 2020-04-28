@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { FavMovies } from './FavMovies';
 import PageNav from './PageNav';
 
-
 const Favourites = () => {
 
     // App states
@@ -16,7 +15,6 @@ const Favourites = () => {
                 const favouriteData = JSON.parse(favs);
                 setFavMovieData(favouriteData);
 
-                       
               }
               getFavMovies();
             }, []);
@@ -32,16 +30,22 @@ const Favourites = () => {
                 localStorage.setItem('favourite', favMovieDataCopy);
             }
 
-    return (
-        <main className="main-home">
-            <section className="section-home">
-                <PageNav />
-                <div className="fav-content">
-                    {favMovieData ? <FavMovies removeFav={removeFav} results={favMovieData}/> : <p className="favourites-p">There are no movies currently saved to your favourites.</p>}
-                </div>
-            </section>
-        </main>
-    );
-};
+            return (
+                <main className="main-home">
+                    <section className="section-home">
+                        <PageNav />
+                        <div className="fav-content">
+                            {favMovieData && <FavMovies removeFav={removeFav} results={favMovieData}/>}
+                            {(favMovieData === null || favMovieData.length === 0) &&
+                            <p className="favourites-p">
+                            There are no movies currently saved to your favourites. Please return to the home page to add a
+                            favourite movie.
+                            </p>
+                            }
+                        </div>
+                    </section>
+                </main>
+            );
+        };
 
 export default Favourites;

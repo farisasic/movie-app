@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL } from '../globals/variables';
 import { useParams } from 'react-router-dom';
 import PageNav from './PageNav';
+import {covertNumericDateToReadableFormat, isMovieInStorage} from '../utilities/storageMaker';
 
 const IndividualMovie = (props) => {
 
@@ -11,7 +12,6 @@ const IndividualMovie = (props) => {
     // App states
     const [movieData, setMovieData] = useState(null);
     const [favourited, setFavourited] = useState(false);
-
 
     // Movie info API call
     useEffect(() => {
@@ -26,14 +26,6 @@ const IndividualMovie = (props) => {
         fetchMovieInfo();
 
         }, [id]);
-
-
-        // Date maker - reformats the date
-        const makeDate = () => {
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            const date = new Date(movieData.release_date);
-            return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-        }
 
         const setFavourite = () => {
 
@@ -63,23 +55,6 @@ const IndividualMovie = (props) => {
                 localStorage.setItem('favourite', JSON.stringify(md));
                 setFavourited(true);
             }
-    }
-
-    function isMovieInStorage(movieFromAPI){
-        let favouritesFromStorage = localStorage.getItem('favourite');
-        if(favouritesFromStorage === null){
-            return false;
-        }
-        favouritesFromStorage = JSON.parse(favouritesFromStorage);
-        if(favouritesFromStorage.length === 0){
-            return false;
-        }else{
-            const found = favouritesFromStorage.find(movie => movie.id === movieFromAPI.id);
-            if(found !== undefined){
-                console.log('isMovieInStorage');
-                return true;
-            }
-        }
     }
 
         return (
@@ -112,7 +87,7 @@ const IndividualMovie = (props) => {
                                 <div className="movie-text-flex">
                                     <div className="release">
                                         <h3>Release date</h3>
-                                        <p>{makeDate(movieData.release_date)}</p>
+                                        <p>{covertNumericDateToReadableFormat(movieData.release_date)}</p>
                                     </div>
                                     <div className="rating">
                                         <h3>Rating</h3>

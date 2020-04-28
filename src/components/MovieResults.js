@@ -1,19 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MAX_LENGTH, TITLE_MAX_LENGTH } from '../globals/variables';
+import {covertNumericDateToReadableFormat} from '../utilities/storageMaker';
 
 const movieResults = (arr) => {
     
     const firstTwelveMovies = arr.slice(0,12);
 
     return firstTwelveMovies.map((result, i) => {
-
-        // // Date maker - reformats the date
-        const makeDate = () => {
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const date = new Date(result.release_date);
-        return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-        }
 
         let text = result.overview;
         let titleText = result.title;
@@ -31,7 +25,7 @@ const movieResults = (arr) => {
                         </div>
                         <div className="release">
                             <h3>Release date</h3>
-                            <p>{makeDate(result.release_date)}</p>
+                            <p>{covertNumericDateToReadableFormat(result.release_date)}</p>
                         </div>
                     </div>
                     <div className="btn-div">
