@@ -19,16 +19,16 @@ const Favourites = () => {
               getFavMovies();
             }, []);
 
-            const removeFav = (movie) => {
-                console.log('removing favourite');
-                const findMovieIndex = (oneMovie) => oneMovie.id === movie.id;
-                let movieIndex = favMovieData.findIndex(findMovieIndex);
-                let favMovieDataCopy = [...favMovieData];
-                favMovieDataCopy.splice(movieIndex, 1);
-                setFavMovieData(favMovieDataCopy);
-                favMovieDataCopy = JSON.stringify(favMovieDataCopy);
-                localStorage.setItem('favourite', favMovieDataCopy);
-            }
+        const removeFav = (movie) => {
+            console.log('removing favourite');
+            const findMovieIndex = (oneMovie) => oneMovie.id === movie.id;
+            let movieIndex = favMovieData.findIndex(findMovieIndex);
+            let favMovieDataCopy = [...favMovieData];
+            favMovieDataCopy.splice(movieIndex, 1);
+            setFavMovieData(favMovieDataCopy);
+            favMovieDataCopy = JSON.stringify(favMovieDataCopy);
+            localStorage.setItem('favourite', favMovieDataCopy);
+        }
 
             return (
                 <main className="main-home">
